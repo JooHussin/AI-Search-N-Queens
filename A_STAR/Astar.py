@@ -1,9 +1,9 @@
 import heapq
 
-# Board size
+
 N = 5
 
-# Function to check if a queen can be safely placed in the given row
+
 def is_safe(state, row):
     col = len(state)  # Next column to place
     for c, r in enumerate(state):
@@ -12,7 +12,7 @@ def is_safe(state, row):
             return False
     return True
 
-# Heuristic function: number of conflicts between queens
+
 def heuristic(state):
     conflicts = 0
     for i in range(len(state)):
@@ -23,18 +23,18 @@ def heuristic(state):
 
 # A* Search function
 def a_star_search():
-    # Priority Queue: (f, g, state)
+    
     pq = []
     heapq.heappush(pq, (0, 0, []))  # Initial state
 
     while pq:
         f, g, state = heapq.heappop(pq)
 
-        # Goal test: 5 queens placed safely
+        
         if len(state) == N:
             return state
 
-        # Generate successors
+     
         for row in range(N):
             if is_safe(state, row):
                 new_state = state + [row]
@@ -48,3 +48,4 @@ def a_star_search():
 # Run A*
 solution = a_star_search()
 print("Solution:", solution)
+
