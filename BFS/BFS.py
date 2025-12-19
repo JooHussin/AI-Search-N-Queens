@@ -1,9 +1,9 @@
 from collections import deque
 
-# Board size
+
 N = 5
 
-# Function to check if a queen can be safely placed in the given row
+
 def is_safe(state, row):
     col = len(state)  # Next column to place
     for c, r in enumerate(state):
@@ -12,20 +12,20 @@ def is_safe(state, row):
             return False
     return True
 
-# Breadth-First Search function
+
 def breadth_first_search():
-    # Queue to store states
+   
     queue = deque()
-    queue.append([])  # Initial state (no queens)
+    queue.append([])  
 
     while queue:
         state = queue.popleft()
 
-        # Goal test: 5 queens placed safely
+       
         if len(state) == N:
             return state
 
-        # Generate successors
+    
         for row in range(N):
             if is_safe(state, row):
                 new_state = state + [row]
@@ -36,3 +36,4 @@ def breadth_first_search():
 # Run BFS
 solution = breadth_first_search()
 print("Solution:", solution)
+
