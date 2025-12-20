@@ -12,7 +12,7 @@ def conflicts(state):
                 count += 1
     return count
 
-# Generate a random initial state
+
 def random_state():
     return [random.randint(0, N - 1) for _ in range(N)]
 
@@ -50,5 +50,6 @@ def hill_climbing():
 solution = hill_climbing()
 print("Solution:", solution)
 print("Conflicts:", conflicts(solution))
+
 
 
