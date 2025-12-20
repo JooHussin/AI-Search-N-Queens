@@ -1,9 +1,9 @@
 import random
 
-# Board size
+
 N = 5
 
-# Count conflicts between queens
+
 def conflicts(state):
     count = 0
     for i in range(len(state)):
@@ -16,7 +16,7 @@ def conflicts(state):
 def random_state():
     return [random.randint(0, N - 1) for _ in range(N)]
 
-# Hill Climbing function
+
 def hill_climbing():
     current = random_state()
     current_conflicts = conflicts(current)
@@ -50,4 +50,5 @@ def hill_climbing():
 solution = hill_climbing()
 print("Solution:", solution)
 print("Conflicts:", conflicts(solution))
+
 
