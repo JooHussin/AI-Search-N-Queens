@@ -1,9 +1,9 @@
 import heapq
 
-# Board size
+
 N = 5
 
-# Function to check if a queen can be safely placed in the given row
+
 def is_safe(state, row):
     col = len(state)  # Next column to place
     for c, r in enumerate(state):
@@ -12,20 +12,20 @@ def is_safe(state, row):
             return False
     return True
 
-# Uniform Cost Search function
+
 def uniform_cost_search():
-    # Priority Queue: (cost, state)
+ 
     pq = []
-    heapq.heappush(pq, (0, []))  # Initial state with cost 0
+    heapq.heappush(pq, (0, []))  
 
     while pq:
         cost, state = heapq.heappop(pq)
 
-        # Goal test: 5 queens placed safely
+       
         if len(state) == N:
             return state
 
-        # Generate successors
+    
         for row in range(N):
             if is_safe(state, row):
                 new_state = state + [row]
@@ -37,3 +37,4 @@ def uniform_cost_search():
 # Run UCS
 solution = uniform_cost_search()
 print("Solution:", solution)
+
